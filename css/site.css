@@ -1,0 +1,298 @@
+/**
+* 
+* Chassis version 1.2 by Rozario Chivers 2008	 
+* Released under a creative commons Attribution-ShareAlike 2.5 license (http://creativecommons.org/licenses/by-sa/2.5/)
+*
+*/
+	
+/* soften reset */
+
+html, body, input, ul, ol, form {
+	padding: 0;
+	margin: 0;
+	color: #333;
+	/* font-family: "Lucida Grande","Trebuchet MS","Tahoma","Helvetica","Arial",sans-serif;*/
+}
+
+/* mitigate IE 5,6 double margin on floats bug */
+.floatfix {
+	_display: inline;
+}
+
+/* mitigate IE haslayout issues */
+#container div, #container ul, #container ol {
+	zoom: 1;
+}
+
+/*--- site wide rules only ---*/
+
+body {
+	background: #a8a8a8 url("../img/site_bg.gif") repeat-x;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333;
+	font-size:85%;
+}
+
+h1 {
+	
+}
+
+#container {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;	
+	height: 600px;
+	background: #fff url("../img/site_bg.gif") 0 -40px repeat-x;
+}
+
+#main {
+	height: 100%;
+	
+}
+
+a:link {
+	color: #606;
+}
+
+a:visited {
+	color: #606;
+}
+
+a:focus {
+	color: #fc3;
+}
+
+a:hover {
+	color: #fc3;
+}
+
+a:active {
+	color: #fc3;
+}
+
+.errormessage, .formstyle .messagearea {
+	background: #ffc url("../img/icon_field_error.png") 5px 5px no-repeat;
+	_background: #ffc url("../img/icon_field_error.gif") 5px 5px no-repeat;
+	padding: 10px 10px 10px 40px;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #999;  
+	font-weight: normal;
+	color: #e00;
+	font-size: 1.5em;
+	font-family: "Arial Rounded MT Bold";
+	opacity: .75;
+	filter: alpha(opacity=75);
+}
+/* begin skiplinks (RNIB based - tab viewable) */
+
+#skiplinks { 
+	position:absolute;
+	top: 0;
+	z-index: 5;
+}
+
+#skiplinks ul li { 
+	font-size: 1.4em;
+	list-style: none;
+}
+
+#skiplinks ul li a { 
+	position:absolute;
+	left:-10000em;
+	z-index:48;
+	white-space:nowrap;
+	color:#5b5344;
+	opacity:.85;
+	filter:alpha(opacity=85);
+	line-height:1.4em;
+	padding: 0 3px 0 3px;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+}
+
+#skiplinks ul li a:focus,
+#skiplinks ul li a:active {
+	left:0em;
+	top: 0em;
+	background-color:#f7f6f0;
+}
+/* end skiplinks */
+
+/* added general focus state for Accessibility : Roz 08/01/2007 */
+a:focus, a:active, input:focus {
+	/* color: #5B5344!important; */
+	/* background-image: none !important; */
+	/* background-color: #ffc !important; */
+	outline: 1px dotted #5B5344!important;
+	-moz-outline:1px dotted #5B5344;
+	text-decoration: none;
+}
+
+/* CSS utility Styles */
+
+/* clearing fix */
+.cf:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* IR  */
+.ir {
+	position: relative;
+	/* default heading styles - just in case and to cater for images off */
+	font-size: 77%;
+	font-weight: bold;
+}
+
+.ir span  {
+	position:absolute;
+	z-index:49;
+	display:block;
+	top:0;
+	left:0;
+	/* standardised height */
+	height:20px;
+	width:100px;
+	background: url("../img/h_defaultimage.gif") 0 0 no-repeat;
+}
+
+#content a {
+	text-decoration: underline;
+}
+
+#content blockquote {
+	font-style: italic;
+	padding: 8px;
+}
+
+/* forms */
+
+.formstyle {
+	
+}
+
+.formstyle .actions {
+	list-style-type: none;
+}
+
+.formstyle .actions li {
+	float: left;
+	margin-right: 0.5em;
+}
+
+.formstyle .primary,
+.formstyle .secondary,
+.formstyle .tertiary {
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold;
+	background-color: #666;
+	padding: 0.2em 0.3em 0.2em 0.3em;
+	border: 2px solid;
+	border-color: #ccc #333 #333 #ccc;
+	/* temporary button styles */
+	-moz-border-radius: 0.4em;
+	-webkit-border-radius: 0.4em;
+}
+
+.formstyle .primary:hover,
+.formstyle .secondary:hover,
+.formstyle .tertiary:hover {
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+.formstyle .secondary {
+	background-color: #999;
+}
+
+.formstyle .tertiary {
+	background-color: #333;
+}
+
+.formstyle input,
+.formstyle a.primary,
+.formstyle a.secondary,
+.formstyle a.tertiary {
+	cursor:pointer;
+}
+
+/* Generic */
+
+.formstyle fieldset {
+	clear: both;
+	width:65%;
+	border:1px solid #999;
+	padding: 0.5em;
+}
+
+.formstyle .field {
+	height: 100%;
+	overflow: auto;
+	margin-bottom: 1em;
+}
+
+.formstyle .messagearea {
+	font-size: 1em;
+	margin-bottom: 1em;
+}
+
+.formstyle label {
+	clear: both;
+	float: left;
+	width: 10.8em;
+	padding-right: 1em;
+	font-weight: normal;
+	text-align: right;
+}
+
+.formstyle input, .form select {
+
+}
+/* utilities */
+.formstyle input.noborder { 
+	border:solid 0;
+} 
+
+.formstyle input.large { 
+	width:13em;
+} 
+ 
+.formstyle input.medium { 
+	width:3em;
+}
+
+.form input.small { 
+	width:2em;
+}
+
+.form input {
+	float:left;
+} 
+
+/* utilities */
+
+
+
+/* site styles */
+/* header */
+#content {
+	position: relative;
+	padding-bottom: 2em;
+}
+
+#header {
+	
+}
+
+#contentarea {
+	
+}
+
+#footer {
+	
+}
+

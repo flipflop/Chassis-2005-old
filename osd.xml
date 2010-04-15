@@ -1,0 +1,28 @@
+<OpenSearchDescription>
+<ShortName>Site Search</ShortName>
+<Description>description goes here</Description>
+<Contact>rchivers@nouvelleniche.com</Contact>
+<Url type="text/html" method="get" template="http://www.site.com/Search?searchTerms={searchTerms}">
+</Url>
+
+<LongName>Site Search</LongName>
+<Image height="32" width="32" type="image/vnd.microsoft.icon">favicon_32.ico</Image>
+-
+	<Image height="16" width="16" type="image/png">
+	favicon.png
+	</Image>
+<Image height="16" width="16" type="image/vnd.microsoft.icon">favicon.ico</Image>
+<Query role="example" searchTerms="homebase"/>
+<Developer>Rozario Chivers</Developer>
+-
+	<Attribution>
+
+    Site Search &copy; 2009, www.site.com
+  
+	</Attribution>
+<SyndicationRight>open</SyndicationRight>
+<AdultContent>false</AdultContent>
+<Language>en-us</Language>
+<OutputEncoding>UTF-8</OutputEncoding>
+<InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

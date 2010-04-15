@@ -1,0 +1,97 @@
+/* iphone native UIKit styles */
+body {
+	background: #aaa;
+    margin: 0;
+    font-family: Helvetica;
+    color: #fff;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+}
+
+body[orient="profile"] .container {
+    height: 416px;
+	width: 320px;
+}
+
+body[orient="landscape"] .container {
+    height: 268px;
+	width: 480px;
+}
+
+.toolbar {
+    position: absolute;
+    padding: 10px 0;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: #3F4E63 0px -1px 1px;
+    background: url(iPhoneToolbar.png) #8191AA repeat-x;
+	background: -webkit-gradient(linear, left top, left bottom, from(#398ed5), to(#226ca8), color-stop(0.5, #226ca8));
+}
+
+body[orient="landscape"] .toolbar {
+    font-size: 20px;
+}
+
+.heading {
+    top: 0;
+	z-index: 1;
+}
+
+.heading2 {	
+    border-top: 1px solid #3f4e63;
+    padding-bottom: 9px;
+    position: relative;
+	bottom: 0;
+}
+
+.view {
+	background: -webkit-gradient(linear, left top, left bottom, from(#999c9e), to(#b2b5b8), color-stop(0.5, #999c9e));
+	height: 100%;
+	overflow: auto;
+}
+
+.center {
+	list-style-type: none;
+	margin: 10px;
+	padding: 0;
+    position: relative;
+    top: 40px;
+    background: #fff;
+	border: 1px solid #999; 
+	-webkit-border-radius: 10px;
+}
+
+body[orient="landscape"] .center {
+    top: 40px;
+    bottom: 40px;
+    width: 96%;
+}
+
+.item {
+    background: url(iPhoneArrow.png) no-repeat right center;
+    border-bottom: 1px solid #999;
+    padding: 8px 32px 8px 8px;
+    color: #000;
+}
+
+.item:first-child {
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+}
+
+.item:last-child {
+	border: none;
+	-webkit-border-bottom-left-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+}
+
+.item:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#3a5ffc), to(#0f37e3), color-stop(0.5, #0529c5));
+	color: #fff;
+}

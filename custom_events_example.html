@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  dir="ltr">
+<head>
+	<title>Custom Events</title>
+	<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/plugins/eventsubscriber.js"></script>
+	<script type="text/javascript">	
+	
+		var ui = {};
+		
+		ui.addEvents = function(){
+			//bind custom event to map
+			
+			$(".map .b1 button").bind("click", function(){
+				alert("Zoom 1 clicked");
+				$.publish("map.zoom", ["foo", "bar", "baz"]);
+			});
+			
+			
+			
+			$(".news .b2 button").bind("click", function(){
+				alert("I have unsubscribed");
+				$.unSubscribe("map.zoom");
+				$(".news p").text("I am now unregistered to map.zoom");
+				
+				$(".news").css({
+					border: ""
+				});
+				
+				$(".news h2").css({
+					background: ""
+				});
+			});
+			
+			$(".news .b1 button").bind("click", function(){
+				
+				$(".news p").text("I am now registered to map.zoom from the news feed!");
+				
+				$(".news").css({
+					border: "1px solid #f00"
+				});
+				
+				$(".news h2").css({
+					background: "#fcc"
+				});
+				
+				$.publish("news.subscribe");
+					
+				$.subscribe("map.zoom", function(event){
+					//console.log("e.type: " + event.type);
+					//console.log("e.data: " + event.data);
+					//console.log("e.target: " + event.target);
+					/*
+					for (var myEvent in event) {
+						console.log(myEvent + " " + event[myEvent] );
+					}
+					*/
+					
+					//console.log(event.handler.apply);
+					
+					$(".news p").text("I have picked his event up from the news feed");
+					
+					$(".news").css({
+						border: ""
+					});
+					
+					$(".news h2").css({
+						background: ""
+					});
+					
+					$(".news p").css({
+						background: "#fcc"
+					});
+				});
+			}); // end $(".news .b1 button").bind()
+			
+		} // end ui.events
+			
+		
+		$(document).ready(function() {
+			ui.addEvents();
+			
+		});
+	</script>
+	<style type="text/css">
+		
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		
+		.map, .news {
+			float: left;
+			width: 200px;
+			height: 200px;
+			border:1px solid #ccc;
+			margin: 5px;
+			padding:0;
+		}
+		
+		.map ul, .news ul {
+			list-style: none;
+			padding: 0;
+			margin-left: 20px;
+		}
+		
+		.map ul li, .news ul li {
+			display: block;
+			height: 2em;
+		}
+		.map h2, .news h2 {
+			margin: 0;
+			padding: 2px 2px 2px 6px;
+			background-color: #fc3;
+		}
+		
+		.news {
+			border: 1px solid #66f;
+		}
+		
+		.news h2 {
+			background-color: #7ce;
+		}
+		
+		.map p, .news p {
+			padding: 5px;
+		}
+		
+	</style>
+</head>
+<body>
+
+
+	<h1>Click on Zoom, then subscribe and click on it again!</h1>
+	<p>
+		The neat way to decouple events from markup
+	</p>
+	
+	<div class="map">
+		<h2>Map Control</h2>
+		<p>
+			
+		</p>
+		<ul>
+			<li class="b1"><button>Zoom</button></li>
+			<li class="b2"><button>Search</button></li>
+			<li class="b3 test"><button>Test</button></li>
+		</ul>
+	</div>
+	
+	
+	<div class="news">
+		<h2>News Feed</h2>
+		<p>
+			
+		</p>
+		<ul>
+			<li class="b1"><button>Subscribe to map</button></li>
+			<li class="b2"><button>Unsubscribe to map</button></li>
+		</ul>
+	</div>
+	
+</body>
+</html>
